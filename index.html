@@ -3,104 +3,113 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
 <title>OPEN THE UNEXPECTED</title>
-<meta name="description" content="Three experiences. Three ways to discover the unexpected. Digital entertainment.">
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#090a0c;color:#f4f1eb;font-family:Arial,Helvetica,sans-serif}
-header{padding:28px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292929}
-.logo{font-size:13px;letter-spacing:4px;font-weight:bold}
-nav a{color:#aaa;text-decoration:none;font-size:12px;letter-spacing:2px}
-.hero{text-align:center;padding:105px 20px 85px;background:radial-gradient(ellipse at center,#29251f 0%,#111 45%,#090a0c 78%)}
-.eyebrow{font-size:11px;letter-spacing:5px;color:#b89b6a}
-h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(42px,8vw,86px);line-height:1.05;margin:25px auto;max-width:900px}
-.hero p{color:#aaa;line-height:1.8;font-size:15px}
-.section{padding:65px 7%;max-width:1300px;margin:auto}
-.section-title{text-align:center;font-family:Georgia,serif;font-weight:normal;font-size:34px;margin-bottom:12px}
-.sub{text-align:center;color:#888;font-size:13px;margin-bottom:45px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{border:1px solid #333;background:linear-gradient(145deg,#1b1b1b,#0d0d0d);min-height:390px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s}
-.card:hover{border-color:#9b8056;transform:translateY(-4px)}
-.number{font-size:11px;letter-spacing:3px;color:#9b8056}
-.art{height:145px;display:flex;align-items:center;justify-content:center}
-.vault{width:115px;height:115px;border:7px solid #777;border-radius:50%;box-shadow:0 0 35px #8a744533,inset 0 0 25px #7775;position:relative}
-.vault:before{content:"";position:absolute;inset:13px;border:2px solid #777;border-radius:50%}
-.vault:after{content:"";position:absolute;width:18px;height:18px;border:3px solid #aaa;border-radius:50%;left:39px;top:39px}
-.doors{display:flex;gap:9px}
-.doors i{display:block;width:42px;height:112px;border:2px solid #8c795d;background:linear-gradient(90deg,#29231c,#66513b,#211c17);box-shadow:0 0 20px #9c805533}
-.redbutton{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff6a55,#a00000 60%,#350000);box-shadow:0 12px 0 #350000,0 20px 35px #a00a; border:5px solid #5d1717}
-h2{font-family:Georgia,serif;font-size:27px;font-weight:normal;margin:18px 0 8px}
-.description{color:#999;font-size:13px;line-height:1.7;min-height:44px}
-.price{font-size:25px;margin:20px 0;color:#d2b98e}
-button{background:transparent;border:1px solid #8f7957;color:#d8c29c;padding:14px 18px;letter-spacing:2px;font-size:10px;cursor:pointer}
-button:hover{background:#8f7957;color:#080808}
-.notice{text-align:center;color:#777;font-size:12px;line-height:1.8;max-width:700px;margin:35px auto 0}
-footer{border-top:1px solid #292929;padding:35px 7%;text-align:center;color:#666;font-size:11px;line-height:2}
-footer a{color:#aaa;text-decoration:none;margin:0 10px}
-@media(max-width:800px){.cards{grid-template-columns:1fr}.card{min-height:350px}.hero{padding-top:75px}}
+html{scroll-behavior:smooth}
+body{margin:0;background:#080808;color:#eee9df;font-family:Arial,sans-serif}
+header{height:76px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #29251e}
+.logo{font-size:12px;letter-spacing:4px;font-weight:700}
+nav{font-size:10px;letter-spacing:2px;color:#b9a47e}
+.hero{min-height:660px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 20px;background:radial-gradient(ellipse at 50% 45%,#30271b 0%,#15120e 28%,#080808 70%)}
+.kicker{color:#b99a65;font-size:10px;letter-spacing:6px}
+h1{font-family:Georgia,serif;font-size:clamp(48px,8vw,92px);font-weight:400;line-height:1.04;letter-spacing:-2px;margin:30px 0}
+.hero p{color:#aaa;font-size:15px;line-height:1.9}
+.goldline{height:1px;width:70px;background:#a98b58;margin:25px auto}
+.section{max-width:1250px;margin:auto;padding:85px 6%}
+.section h2{text-align:center;font:normal clamp(32px,5vw,48px) Georgia,serif;margin:0}
+.subtitle{text-align:center;color:#888;font-size:13px;margin:17px 0 55px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;overflow:hidden;min-height:520px;padding:28px 25px 30px;background:linear-gradient(145deg,#20201e,#0c0c0c 65%);border:1px solid #39352e;display:flex;flex-direction:column;justify-content:space-between;transition:.4s}
+.card:hover{border-color:#b29462;transform:translateY(-5px)}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 43%,#a58a5720,transparent 60%);pointer-events:none}
+.num{font-size:10px;letter-spacing:4px;color:#b69a69;position:relative}
+.art{height:225px;display:flex;align-items:center;justify-content:center;position:relative}
+.vault{width:175px;height:175px;border-radius:50%;border:10px solid #77766f;background:radial-gradient(circle,#171717 35%,#383631 36%,#151515 48%,#55534c 50%,#222 57%,#111 70%);box-shadow:0 0 0 4px #282722,0 0 35px #ad915033,inset 0 0 25px #000;position:relative}
+.vault:before{content:"";position:absolute;inset:17px;border-radius:50%;border:2px solid #9b9588}
+.vault:after{content:"";position:absolute;width:38px;height:38px;border:5px solid #b4aa96;border-radius:50%;top:57px;left:57px;box-shadow:0 0 15px #b99b5544}
+.handle{position:absolute;width:5px;height:65px;background:linear-gradient(90deg,#555,#d1c6a9,#555);left:85px;top:48px;transform:rotate(45deg)}
+.doors{display:flex;gap:9px;align-items:center}
+.door{height:170px;width:52px;border:2px solid #927a55;background:linear-gradient(90deg,#15120e,#675238 35%,#272017 55%,#090909);box-shadow:inset 0 0 20px #000,0 0 18px #b2944a22;position:relative}
+.door:after{content:"";position:absolute;right:7px;top:80px;width:5px;height:5px;border-radius:50%;background:#c5a46a;box-shadow:0 0 8px #c5a46a}
+.redbase{width:145px;height:145px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#ff786b,#b3130e 42%,#4b0505 75%);border:9px solid #49433b;box-shadow:0 10px 0 #201b17,0 18px 30px #000,inset 0 3px 12px #ffb1a044;position:relative}
+.redbase:after{content:"";position:absolute;inset:13px;border:2px solid #e36a55;border-radius:50%}
+.card h3{font:normal 30px Georgia,serif;margin:15px 0 10px;position:relative}
+.desc{color:#999;font-size:13px;line-height:1.8;min-height:48px;position:relative}
+.price{font:normal 27px Georgia,serif;color:#c9ad7b;margin:20px 0;position:relative}
+.btn{width:100%;padding:16px;border:1px solid #94794f;background:transparent;color:#d6bd91;letter-spacing:3px;font-size:10px;cursor:pointer;position:relative}
+.btn:hover{background:#b29462;color:#090909}
+.disclosure{max-width:720px;margin:55px auto 0;text-align:center;color:#777;font-size:11px;line-height:1.9}
+footer{border-top:1px solid #29251e;text-align:center;padding:35px 15px;color:#777;font-size:10px;letter-spacing:1px;line-height:2.3}
+@media(max-width:850px){.cards{grid-template-columns:1fr;max-width:480px;margin:auto}.card{min-height:490px}.hero{min-height:590px}.section{padding:65px 7%}}
 </style>
 </head>
 <body>
 <header>
 <div class="logo">OPEN THE UNEXPECTED</div>
-<nav><a href="#experiences">THE EXPERIENCES</a></nav>
+<nav>THREE EXPERIENCES</nav>
 </header>
 
-<main>
 <section class="hero">
-<div class="eyebrow">A DIFFERENT KIND OF ENTERTAINMENT</div>
+<div class="kicker">A DIFFERENT KIND OF ENTERTAINMENT</div>
 <h1>You pay.<br>You open.<br>You discover.</h1>
-<p>Three experiences. Three unexpected reveals.<br>Choose your door. Find out what is waiting.</p>
+<div class="goldline"></div>
+<p>Three experiences. Three unexpected reveals.<br>Choose your experience. Discover what's inside.</p>
 </section>
 
-<section class="section" id="experiences">
-<h2 class="section-title">Choose your experience</h2>
-<p class="sub">A small payment. A moment of the unexpected.</p>
+<main class="section" id="experiences">
+<h2>Choose your experience</h2>
+<p class="subtitle">Curiosity has a door. Which one will you open?</p>
 
 <div class="cards">
 <article class="card">
+<div class="num">01 &nbsp; / &nbsp; THE VAULT</div>
+<div class="art"><div class="vault"><div class="handle"></div></div></div>
 <div>
-<div class="number">01 / THE VAULT</div>
-<div class="art"><div class="vault"></div></div>
-<h2>The Vault</h2>
-<p class="description">Unlock something unexpected. Strange, funny, and completely out of the ordinary.</p>
-<div class="price">€2</div>
+<h3>The Vault</h3>
+<p class="desc">A locked vault. An unexpected reveal. Something strange, absurd or unforgettable.</p>
+<div class="price">€2.00</div>
+<button class="btn" onclick="comingSoon()">OPEN THE VAULT</button>
 </div>
-<button onclick="alert('Checkout is not available yet. Launch coming soon.')">COMING SOON</button>
 </article>
 
 <article class="card">
+<div class="num">02 &nbsp; / &nbsp; THE THREE DOORS</div>
+<div class="art"><div class="doors"><div class="door"></div><div class="door"></div><div class="door"></div></div></div>
 <div>
-<div class="number">02 / THE THREE DOORS</div>
-<div class="art"><div class="doors"><i></i><i></i><i></i></div></div>
-<h2>The Three Doors</h2>
-<p class="description">Three doors. One choice. A mysterious digital reveal awaits.</p>
-<div class="price">€3</div>
+<h3>The Three Doors</h3>
+<p class="desc">Three mysterious doors. Make your choice and discover the reveal behind it.</p>
+<div class="price">€3.00</div>
+<button class="btn" onclick="comingSoon()">CHOOSE A DOOR</button>
 </div>
-<button onclick="alert('Checkout is not available yet. Launch coming soon.')">COMING SOON</button>
 </article>
 
 <article class="card">
+<div class="num">03 &nbsp; / &nbsp; THE RED BUTTON</div>
+<div class="art"><div class="redbase"></div></div>
 <div>
-<div class="number">03 / THE RED BUTTON</div>
-<div class="art"><div class="redbutton"></div></div>
-<h2>The Red Button</h2>
-<p class="description">One press. One message. A moment designed to make you feel something.</p>
-<div class="price">€5</div>
+<h3>The Red Button</h3>
+<p class="desc">One decision. One unexpected message. A little moment that might stay with you.</p>
+<div class="price">€5.00</div>
+<button class="btn" onclick="comingSoon()">PRESS THE BUTTON</button>
 </div>
-<button onclick="alert('Checkout is not available yet. Launch coming soon.')">COMING SOON</button>
 </article>
 </div>
 
-<p class="notice">OPEN THE UNEXPECTED is a digital entertainment experience. All reveals are curated for entertainment purposes only. No cash prizes, physical goods, predictions, or guaranteed personal outcomes are offered.</p>
-</section>
+<p class="disclosure">This is a paid digital entertainment experience. Reveals are curated for entertainment purposes only. No cash prizes, physical goods, predictions or guaranteed personal outcomes are offered. One-time purchases only. No subscription.</p>
 </main>
 
 <footer>
 OPEN THE UNEXPECTED © 2026<br>
-Digital entertainment · One-time purchases · No subscriptions<br><br>
-<a href="mailto:contact@opentheunexpected.com">Contact</a>
+A MOMENT OUTSIDE THE ORDINARY
 </footer>
+
+<script>
+function comingSoon(){
+alert("The experience is being prepared. Payments are not available yet.");
+}
+</script>
 </body>
 </html>
