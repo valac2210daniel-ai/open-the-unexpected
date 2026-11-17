@@ -414,6 +414,53 @@ async function startCheckout(product) {
     alert("Payment error: " + error.message);
   }
 }
+  
+async function checkPaymentReturn() {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("payment") !== "success") return;
+
+  const id = params.get("id");
+  if (!id) {
+    alert("Missing order ID.");
+    return;
+  }
+
+  const api = "https://otu-payment-backend.valac2210daniel.workers.dev";
+
+  try {
+    for (let attempt = 0; attempt < 10; attempt++) {
+      const response = await fetch(
+        api + "/order-status?id=" + encodeURIComponent(id)
+      );
+
+      if (!response.ok) throw new Error("Order verification failed");
+
+      const order = await response.json();
+
+      if (order.status === "paid") {
+        window.history.replaceState({}, "", window.location.pathname);
+
+        if (order.product === "vault") openVault();
+        else if (order.product === "doors") openDoors();
+        else if (order.product === "red") openRedButton();
+        else alert("Unknown purchased product.");
+
+        return;
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+
+    alert("Payment confirmation is still pending. Please contact support with your order ID.");
+  } catch (error) {
+    console.error("Payment verification:", error);
+    alert("Unable to verify payment right now. Please try again later.");
+  }
+}
+
+checkPaymentReturn();
+
 </script>
 
   <footer style="text-align:center;padding:35px 15px;color:#aaa;font-size:13px;">
