@@ -146,6 +146,184 @@ const title = document.getElementById("modalTitle");
 const description = document.getElementById("modalText");
 const message = document.getElementById("revealMessage");
 const doors = document.getElementById("doorOptions");
+  
+const revealLibrary = {
+  vault: [
+    "A duck somewhere is having a better day than you.",
+    "You have unlocked absolutely nothing useful. Congratulations.",
+    "Your coffee believes in you.",
+    "A pigeon has probably made a better financial decision today.",
+    "Plot twist: the mystery was inside the box all along.",
+    "You are now 0.001% more mysterious.",
+    "Somewhere, a cat is silently judging your decisions.",
+    "Your future self recommends a snack.",
+    "The secret ingredient was confidence.",
+    "You have discovered the art of doing absolutely nothing.",
+    "A tiny victory deserves a tiny celebration.",
+    "This vault contains premium nonsense.",
+    "You are officially too curious for your own good.",
+    "A mysterious potato approves of you.",
+    "Your luck is currently buffering.",
+    "The universe misplaced your instruction manual.",
+    "You have unlocked a very exclusive imaginary trophy.",
+    "A penguin somewhere would probably be your friend.",
+    "This message has no practical value. Enjoy.",
+    "You just made a random moment less ordinary.",
+    "The secret password was probably banana.",
+    "You have discovered absolutely classified silliness.",
+    "Your imagination deserves a raise.",
+    "A small mystery has entered your day.",
+    "Somebody somewhere is looking for this exact message.",
+    "The vault keeper says hello.",
+    "Your curiosity has excellent taste.",
+    "A random thought just became important.",
+    "This is your official permission to laugh.",
+    "The treasure was the ridiculous journey.",
+    "You have unlocked a certified odd moment.",
+    "A tiny invisible orchestra is applauding.",
+    "Your day has gained one strange detail.",
+    "The vault is empty, but your imagination isn't.",
+    "A mysterious sandwich awaits in another universe.",
+    "You are now the owner of one imaginary secret.",
+    "This discovery is wonderfully unnecessary.",
+    "A small surprise has successfully found you.",
+    "Your curiosity just won today's lottery of randomness.",
+    "The secret file says: keep being curious.",
+    "Somewhere a goldfish remembers you.",
+    "You have unlocked a very rare moment of nonsense.",
+    "A mystery has been solved. Nobody knows which one.",
+    "Your invisible assistant says well done.",
+    "The vault contains one extra reason to smile.",
+    "You found the secret nobody was looking for.",
+    "A strange little victory is still a victory.",
+    "Your imagination just opened another door.",
+    "The unexpected has officially happened.",
+    "End of file. Beginning of a good day."
+  ],
+
+  doors: [
+    "A new chapter can begin with one simple hello.",
+    "The answer may be hiding in a question you avoid.",
+    "Not every closed door is a lost opportunity.",
+    "A forgotten idea may deserve another chance.",
+    "The quiet path can lead somewhere extraordinary.",
+    "Something changes when you finally choose.",
+    "A small beginning can become a remarkable story.",
+    "The next step does not need to be perfect.",
+    "A mystery is sometimes better left open.",
+    "Your perspective can change the entire room.",
+    "There is more than one way forward.",
+    "The door you fear may teach you the most.",
+    "A coincidence can become a meaningful memory.",
+    "The unknown is not always your enemy.",
+    "A different question may reveal a different answer.",
+    "Some journeys begin before you feel ready.",
+    "The smallest key can open a large door.",
+    "You do not need to know the whole map.",
+    "An unexpected turn can become your favorite story.",
+    "Every choice creates a different possibility.",
+    "The silence behind this door has a story.",
+    "Sometimes the clue is what you overlooked.",
+    "A new perspective is its own kind of discovery.",
+    "The future is not a room with one entrance.",
+    "A little courage can change the atmosphere.",
+    "The best discoveries rarely announce themselves.",
+    "You can begin again without starting from zero.",
+    "A hidden possibility deserves your attention.",
+    "Not all answers arrive in words.",
+    "The next page is still unwritten.",
+    "A familiar place can hold a new mystery.",
+    "You are allowed to change direction.",
+    "A question can be more valuable than an answer.",
+    "The unexpected often begins with a choice.",
+    "Some doors open only after you stop rushing.",
+    "A new idea may be closer than you think.",
+    "The unknown gives imagination room to work.",
+    "One decision can create a different afternoon.",
+    "There is beauty in not knowing everything.",
+    "A closed chapter makes space for another.",
+    "Look again. The details may have changed.",
+    "Your next discovery may be ordinary at first.",
+    "A little wonder can make a long day lighter.",
+    "The path forward is yours to create.",
+    "Sometimes choosing is the real adventure.",
+    "A different door, a different perspective.",
+    "You have reached the end of one mystery.",
+    "The story continues beyond this screen.",
+    "Every ending leaves room for possibility.",
+    "You chose. Now make the next moment count."
+  ],
+
+  red: [
+    "Stop waiting for the perfect moment. Make this one count.",
+    "You are allowed to start again.",
+    "Small moves. Big changes. Start today.",
+    "You have come further than you think.",
+    "Your next chapter deserves your courage.",
+    "Progress is still progress, even when it is quiet.",
+    "One honest step is better than endless planning.",
+    "You do not have to be fearless to begin.",
+    "Give yourself credit for making it this far.",
+    "Your story is still being written.",
+    "A difficult day does not define your life.",
+    "Start where you are. Use what you have.",
+    "You are more than one mistake.",
+    "Keep the promise you made to yourself.",
+    "The next step is often smaller than you imagine.",
+    "You deserve the patience you give to others.",
+    "Let today be a beginning, not a verdict.",
+    "You can move forward at your own pace.",
+    "Courage can look like trying one more time.",
+    "Your effort matters, even when nobody sees it.",
+    "Do not confuse a slow season with a failed life.",
+    "Make room for something better.",
+    "You are allowed to outgrow old versions of yourself.",
+    "One good choice can change the tone of a day.",
+    "You do not need permission to improve your life.",
+    "Keep going. Your effort is not invisible.",
+    "The smallest step still changes your position.",
+    "Be proud of the battles you face quietly.",
+    "Your future is built from ordinary decisions.",
+    "Rest if you need to. Do not give up on yourself.",
+    "A fresh start can happen on an ordinary day.",
+    "You are capable of more than this moment suggests.",
+    "Choose progress over perfection.",
+    "There is strength in asking for help.",
+    "Let your actions speak louder than your doubts.",
+    "You can be both a work in progress and worthy.",
+    "Do not let yesterday make every decision today.",
+    "Your next opportunity may begin with preparation.",
+    "Be patient with the person you are becoming.",
+    "You are not behind in your own story.",
+    "A little discipline can create a lot of freedom.",
+    "Keep your standards high and your self-talk kind.",
+    "You can change direction without calling it failure.",
+    "Make one decision today that your future self will thank you for.",
+    "Your resilience deserves recognition.",
+    "You do not need to solve everything today.",
+    "The next chapter starts with the next choice.",
+    "Believe in the value of your own effort.",
+    "There is still room for a beautiful surprise.",
+    "Take a breath. Then take the next step."
+  ]
+};
+
+function pickUniqueReveal(type) {
+  const key = "otu_used_" + type;
+  let used = JSON.parse(localStorage.getItem(key) || "[]");
+  const library = revealLibrary[type];
+  if (used.length >= library.length) {
+    used = [];
+  }
+  const available = library
+    .map((message, index) => ({message, index}))
+    .filter(item => !used.includes(item.index));
+  const chosen = available[Math.floor(Math.random() * available.length)];
+  used.push(chosen.index);
+  localStorage.setItem(key, JSON.stringify(used));
+  return chosen.message;
+}
+
 
 function showReveal(name, text, reveal) {
   title.textContent = name;
@@ -158,48 +336,53 @@ function showReveal(name, text, reveal) {
   content.classList.add("animate");
 }
 
+
 function openVault() {
-  const reveals = [
-    "Somewhere, a duck is having a better day than you.",
-    "Your future self just sent you a high five.",
-    "Congratulations. You have officially unlocked absolutely nothing useful.",
-    "The secret ingredient was confidence all along.",
-    "A tiny reminder: ordinary days can become extraordinary."
-  ];
-  showReveal("THE VAULT IS OPEN", "You unlocked a random entertainment reveal.", reveals[Math.floor(Math.random()*reveals.length)]);
+  showReveal(
+    "THE VAULT IS OPEN",
+    "You unlocked a unique entertainment reveal.",
+    pickUniqueReveal("vault")
+  );
 }
+
+
 
 function openDoors() {
   title.textContent = "CHOOSE YOUR DOOR";
   description.textContent = "Each door hides a different surprise. Pick one.";
   message.textContent = "";
   doors.innerHTML = "";
-  ["DOOR I","DOOR II","DOOR III"].forEach((door, index) => {
+
+  ["DOOR I", "DOOR II", "DOOR III"].forEach((door, index) => {
     const button = document.createElement("button");
     button.textContent = door;
+
     button.onclick = () => {
-      const reveals = [
-        "A strange opportunity begins with a simple hello.",
-        "Plot twist: you are allowed to start again.",
-        "The best part of the story hasn't happened yet."
-      ];
-      showReveal("DOOR " + (index+1) + " OPENED", "Your selected door reveals:", reveals[index]);
+      showReveal(
+        "DOOR " + (index + 1) + " OPENED",
+        "Your selected door reveals:",
+        pickUniqueReveal("doors")
+      );
     };
+
     doors.appendChild(button);
   });
+
+  content.classList.remove("animate");
   modal.classList.add("active");
+  void content.offsetWidth;
   content.classList.add("animate");
 }
 
+
 function openRedButton() {
-  const reveals = [
-    "Stop waiting for the perfect moment. Make this one count.",
-    "You are one brave decision away from a new chapter.",
-    "Small moves. Big changes. Start today.",
-    "Your reminder: you have come further than you think."
-  ];
-  showReveal("YOU PRESSED THE BUTTON", "Here is your unexpected message:", reveals[Math.floor(Math.random()*reveals.length)]);
+  showReveal(
+    "YOU PRESSED THE BUTTON",
+    "Here is your unexpected message:",
+    pickUniqueReveal("red")
+  );
 }
+
 
 function closeExperience() {
   modal.classList.remove("active");
