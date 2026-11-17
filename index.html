@@ -411,7 +411,7 @@ async function startCheckout(product) {
 
   } catch (error) {
     console.error("Checkout error:", error);
-    alert("Payment could not be started. Please try again.");
+    alert("Payment error: " + error.message);
   }
 }
 </script>
