@@ -128,10 +128,88 @@ OPEN THE UNEXPECTED © 2026<br>
 A MOMENT OUTSIDE THE ORDINARY
 </footer>
 
+<div class="experience-modal" id="experienceModal">
+  <div class="modal-content" id="modalContent">
+    <div class="modal-kicker">OPEN THE UNEXPECTED</div>
+    <h2 id="modalTitle">Your reveal</h2>
+    <p id="modalText">A moment outside the ordinary.</p>
+    <div class="reveal-message" id="revealMessage"></div>
+    <div id="doorOptions" class="door-options"></div>
+    <button class="modal-close" onclick="closeExperience()">CLOSE</button>
+  </div>
+</div>
+  
 <script>
-function comingSoon(){
-alert("The experience is being prepared. Payments are not available yet.");
+const modal = document.getElementById("experienceModal");
+const content = document.getElementById("modalContent");
+const title = document.getElementById("modalTitle");
+const description = document.getElementById("modalText");
+const message = document.getElementById("revealMessage");
+const doors = document.getElementById("doorOptions");
+
+function showReveal(name, text, reveal) {
+  title.textContent = name;
+  description.textContent = text;
+  message.textContent = reveal;
+  doors.innerHTML = "";
+  content.classList.remove("animate");
+  modal.classList.add("active");
+  void content.offsetWidth;
+  content.classList.add("animate");
 }
+
+function openVault() {
+  const reveals = [
+    "Somewhere, a duck is having a better day than you.",
+    "Your future self just sent you a high five.",
+    "Congratulations. You have officially unlocked absolutely nothing useful.",
+    "The secret ingredient was confidence all along.",
+    "A tiny reminder: ordinary days can become extraordinary."
+  ];
+  showReveal("THE VAULT IS OPEN", "You unlocked a random entertainment reveal.", reveals[Math.floor(Math.random()*reveals.length)]);
+}
+
+function openDoors() {
+  title.textContent = "CHOOSE YOUR DOOR";
+  description.textContent = "Each door hides a different surprise. Pick one.";
+  message.textContent = "";
+  doors.innerHTML = "";
+  ["DOOR I","DOOR II","DOOR III"].forEach((door, index) => {
+    const button = document.createElement("button");
+    button.textContent = door;
+    button.onclick = () => {
+      const reveals = [
+        "A strange opportunity begins with a simple hello.",
+        "Plot twist: you are allowed to start again.",
+        "The best part of the story hasn't happened yet."
+      ];
+      showReveal("DOOR " + (index+1) + " OPENED", "Your selected door reveals:", reveals[index]);
+    };
+    doors.appendChild(button);
+  });
+  modal.classList.add("active");
+  content.classList.add("animate");
+}
+
+function openRedButton() {
+  const reveals = [
+    "Stop waiting for the perfect moment. Make this one count.",
+    "You are one brave decision away from a new chapter.",
+    "Small moves. Big changes. Start today.",
+    "Your reminder: you have come further than you think."
+  ];
+  showReveal("YOU PRESSED THE BUTTON", "Here is your unexpected message:", reveals[Math.floor(Math.random()*reveals.length)]);
+}
+
+function closeExperience() {
+  modal.classList.remove("active");
+}
+
+const buttons = document.querySelectorAll(".card .btn");
+buttons[0].onclick = openVault;
+buttons[1].onclick = openDoors;
+buttons[2].onclick = openRedButton;
 </script>
+
 </body>
 </html>
