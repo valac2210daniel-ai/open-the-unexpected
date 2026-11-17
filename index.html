@@ -388,10 +388,32 @@ function closeExperience() {
   modal.classList.remove("active");
 }
 
-const buttons = document.querySelectorAll(".card .btn");
-buttons[0].onclick = openVault;
-buttons[1].onclick = openDoors;
-buttons[2].onclick = openRedButton;
+async function startCheckout(product) {
+  try {
+    const response = await fetch(
+      "https://otu-payment-backend.valac2210daniel.workers.dev/create-checkout",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ product: product })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.checkout_url) {
+      throw new Error(result.error || "Checkout could not be created");
+    }
+
+    window.location.href = result.checkout_url;
+
+  } catch (error) {
+    console.error("Checkout error:", error);
+    alert("Payment could not be started. Please try again.");
+  }
+}
 </script>
 
   <footer style="text-align:center;padding:35px 15px;color:#aaa;font-size:13px;">
