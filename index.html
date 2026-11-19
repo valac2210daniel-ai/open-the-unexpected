@@ -1,474 +1,87 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080808">
-<title>OPEN THE UNEXPECTED</title>
+<meta name="theme-color" content="#080b0a">
+<meta name="description" content="ODDS ELITE — daily sports predictions, selected odds and transparent results.">
+<title>ODDS ELITE | Sports Predictions</title>
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#080808;color:#eee9df;font-family:Arial,sans-serif}
-header{height:76px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #29251e}
-.logo{font-size:12px;letter-spacing:4px;font-weight:700}
-nav{font-size:10px;letter-spacing:2px;color:#b9a47e}
-.hero{min-height:660px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 20px;background:radial-gradient(ellipse at 50% 45%,#30271b 0%,#15120e 28%,#080808 70%)}
-.kicker{color:#b99a65;font-size:10px;letter-spacing:6px}
-h1{font-family:Georgia,serif;font-size:clamp(48px,8vw,92px);font-weight:400;line-height:1.04;letter-spacing:-2px;margin:30px 0}
-.hero p{color:#aaa;font-size:15px;line-height:1.9}
-.goldline{height:1px;width:70px;background:#a98b58;margin:25px auto}
-.section{max-width:1250px;margin:auto;padding:85px 6%}
-.section h2{text-align:center;font:normal clamp(32px,5vw,48px) Georgia,serif;margin:0}
-.subtitle{text-align:center;color:#888;font-size:13px;margin:17px 0 55px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{position:relative;overflow:hidden;min-height:520px;padding:28px 25px 30px;background:linear-gradient(145deg,#20201e,#0c0c0c 65%);border:1px solid #39352e;display:flex;flex-direction:column;justify-content:space-between;transition:.4s}
-.card:hover{border-color:#b29462;transform:translateY(-5px)}
-.card:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 43%,#a58a5720,transparent 60%);pointer-events:none}
-.num{font-size:10px;letter-spacing:4px;color:#b69a69;position:relative}
-.art{height:225px;display:flex;align-items:center;justify-content:center;position:relative}
-.vault{width:175px;height:175px;border-radius:50%;border:10px solid #77766f;background:radial-gradient(circle,#171717 35%,#383631 36%,#151515 48%,#55534c 50%,#222 57%,#111 70%);box-shadow:0 0 0 4px #282722,0 0 35px #ad915033,inset 0 0 25px #000;position:relative}
-.vault:before{content:"";position:absolute;inset:17px;border-radius:50%;border:2px solid #9b9588}
-.vault:after{content:"";position:absolute;width:38px;height:38px;border:5px solid #b4aa96;border-radius:50%;top:57px;left:57px;box-shadow:0 0 15px #b99b5544}
-.handle{position:absolute;width:5px;height:65px;background:linear-gradient(90deg,#555,#d1c6a9,#555);left:85px;top:48px;transform:rotate(45deg)}
-.doors{display:flex;gap:9px;align-items:center}
-.door{height:170px;width:52px;border:2px solid #927a55;background:linear-gradient(90deg,#15120e,#675238 35%,#272017 55%,#090909);box-shadow:inset 0 0 20px #000,0 0 18px #b2944a22;position:relative}
-.door:after{content:"";position:absolute;right:7px;top:80px;width:5px;height:5px;border-radius:50%;background:#c5a46a;box-shadow:0 0 8px #c5a46a}
-.redbase{width:145px;height:145px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#ff786b,#b3130e 42%,#4b0505 75%);border:9px solid #49433b;box-shadow:0 10px 0 #201b17,0 18px 30px #000,inset 0 3px 12px #ffb1a044;position:relative}
-.redbase:after{content:"";position:absolute;inset:13px;border:2px solid #e36a55;border-radius:50%}
-.card h3{font:normal 30px Georgia,serif;margin:15px 0 10px;position:relative}
-.desc{color:#999;font-size:13px;line-height:1.8;min-height:48px;position:relative}
-.price{font:normal 27px Georgia,serif;color:#c9ad7b;margin:20px 0;position:relative}
-.btn{width:100%;padding:16px;border:1px solid #94794f;background:transparent;color:#d6bd91;letter-spacing:3px;font-size:10px;cursor:pointer;position:relative}
-.btn:hover{background:#b29462;color:#090909}
-.disclosure{max-width:720px;margin:55px auto 0;text-align:center;color:#777;font-size:11px;line-height:1.9}
-footer{border-top:1px solid #29251e;text-align:center;padding:35px 15px;color:#777;font-size:10px;letter-spacing:1px;line-height:2.3}
-@media(max-width:850px){.cards{grid-template-columns:1fr;max-width:480px;margin:auto}.card{min-height:490px}.hero{min-height:590px}.section{padding:65px 7%}}
-
-.experience-modal{
-display:none;position:fixed;inset:0;z-index:1000;
-background:rgba(0,0,0,.94);align-items:center;
-justify-content:center;padding:22px;
-}
-.experience-modal.active{display:flex}
-.modal-content{
-width:100%;max-width:520px;text-align:center;
-padding:45px 25px;background:linear-gradient(145deg,#242019,#090909);
-border:1px solid #a98b58;box-shadow:0 0 70px #a98b5822;
-}
-.modal-kicker{color:#b99a65;font-size:10px;letter-spacing:4px}
-.modal-content h2{font:normal 38px Georgia,serif;margin:25px 0}
-.modal-content p{color:#bbb;line-height:1.8;font-size:15px}
-.reveal-message{font:normal 23px Georgia,serif;color:#e1c38c!important;margin:30px 0}
-.modal-close{margin-top:20px;padding:14px 30px;border:1px solid #a98b58;background:transparent;color:#e1c38c;letter-spacing:2px;cursor:pointer}
-.door-options{display:flex;gap:10px;justify-content:center;margin:25px 0}
-.door-options button{flex:1;min-height:90px;border:1px solid #a98b58;background:#17130e;color:#e1c38c;font-size:12px;cursor:pointer}
-.door-options button:hover{background:#5c482b}
-@keyframes reveal{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
-.modal-content.animate{animation:reveal .6s ease}
+:root{--bg:#080b0a;--panel:#111a14;--text:#f4f7f4;--muted:#a5b0a9;--green:#b6ff45;--line:#29372e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+header{height:72px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-size:19px;font-weight:900;letter-spacing:2px}.logo span,h1 span{color:var(--green)}
+nav{display:flex;gap:24px;font-size:11px;letter-spacing:1px;color:var(--muted)}nav a{color:inherit;text-decoration:none}nav a:hover{color:var(--green)}
+.hero{min-height:550px;padding:85px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at 50% 45%,#1c3425,#080b0a 72%)}
+.kicker{color:var(--green);font-size:11px;letter-spacing:4px;font-weight:bold}
+h1{font-size:clamp(43px,8vw,82px);line-height:1;letter-spacing:-3px;margin:25px 0;font-weight:900}
+.hero p{max-width:660px;color:var(--muted);line-height:1.8}
+.cta{display:inline-block;margin:22px 7px 0;padding:15px 24px;background:var(--green);color:#081008;text-decoration:none;font-size:11px;font-weight:900;letter-spacing:1px}.cta.alt{background:transparent;border:1px solid #536458;color:white}
+.trust{margin-top:38px;color:#c0cbc3;font-size:10px;letter-spacing:1.3px}.trust span{margin:0 10px}
+.section{max-width:1180px;margin:auto;padding:78px 6%}.section h2{text-align:center;font-size:clamp(30px,5vw,44px);margin:0}
+.sub{text-align:center;color:var(--muted);font-size:14px;line-height:1.7;margin:15px auto 45px;max-width:700px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:28px 24px;background:linear-gradient(145deg,#17221a,#101612);border:1px solid var(--line);display:flex;flex-direction:column;position:relative}
+.card.vip{border-color:var(--green);box-shadow:0 0 30px #b6ff4510}.badge{position:absolute;right:15px;top:0;background:var(--green);color:#071007;padding:7px 11px;font-size:9px;font-weight:bold}
+.plan{color:var(--green);font-size:10px;letter-spacing:3px;font-weight:bold}.card h3{font-size:31px;margin:12px 0}
+.price{font-size:42px;font-weight:900}.once{font-size:10px;color:var(--muted)}.desc{color:var(--muted);font-size:13px;line-height:1.7;min-height:45px;margin:18px 0}
+ul{list-style:none;padding:0;margin:0 0 25px;flex:1}li{font-size:13px;line-height:1.5;padding:9px 0;border-bottom:1px solid #29372e}li:before{content:"✓";color:var(--green);margin-right:9px;font-weight:bold}.group{color:var(--green);font-weight:bold}
+.buy{width:100%;padding:16px;background:var(--green);border:1px solid var(--green);color:#081008;font-weight:900;font-size:11px;letter-spacing:1px;cursor:pointer}.buy:disabled{opacity:.6;cursor:wait}
+.note,.disclaimer{color:#89958d;font-size:11px;line-height:1.9;text-align:center;max-width:850px;margin:28px auto 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:35px}.tile{padding:24px;background:#101712;border:1px solid var(--line);text-align:center}.tile b{display:block;color:var(--green);margin-bottom:9px;letter-spacing:1px}.tile span{color:var(--muted);font-size:12px;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{padding:24px;border:1px solid var(--line);background:#101712}.step b{color:var(--green);font-size:11px;letter-spacing:2px}.step h3{margin:12px 0}.step p{font-size:13px;color:var(--muted);line-height:1.7}
+.status{display:none;text-align:center;margin:18px auto;padding:14px;border:1px solid var(--line);max-width:600px;color:white}
+footer{text-align:center;border-top:1px solid var(--line);padding:30px 10px;color:#89958d;font-size:10px;line-height:2.5}footer a{color:#c4d0c7;margin:0 8px;text-decoration:none}
+@media(max-width:850px){.cards,.grid3,.steps{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}.trust span{display:inline-block;margin:7px}.section{padding:60px 6%}}
+@media(max-width:520px){header{padding:0 5%}.logo{font-size:16px}nav{gap:10px;font-size:9px}nav a:nth-child(2){display:none}}
 </style>
 </head>
 <body>
-<header>
-<div class="logo">OPEN THE UNEXPECTED</div>
-<nav>THREE EXPERIENCES</nav>
-</header>
-
+<header><div class="logo">ODDS <span>ELITE</span></div><nav><a href="#packages">PACKAGES</a><a href="#results">RESULTS</a><a href="#how">HOW IT WORKS</a></nav></header>
 <section class="hero">
-<div class="kicker">A DIFFERENT KIND OF ENTERTAINMENT</div>
-<h1>You pay.<br>You open.<br>You discover.</h1>
-<div class="goldline"></div>
-<p>Three experiences. Three unexpected reveals.<br>Choose your experience. Discover what's inside.</p>
+<div class="kicker">SPORTS INSIGHT · DAILY SELECTIONS</div>
+<h1>READ THE GAME.<br><span>MAKE YOUR MOVE.</span></h1>
+<p>Daily sports predictions across multiple sports, selected odds and access to a private Telegram community. Choose the package that fits you.</p>
+<a class="cta" href="#packages">EXPLORE PACKAGES</a><a class="cta alt" href="#results">OUR TRANSPARENCY POLICY</a>
+<div class="trust"><span>ALL SPORTS</span><span>DAILY PICKS</span><span>ONE-TIME PAYMENT</span><span>LIFETIME ACCESS</span></div>
 </section>
-
-<main class="section" id="experiences">
-<h2>Choose your experience</h2>
-<p class="subtitle">Curiosity has a door. Which one will you open?</p>
-
+<main>
+<section class="section" id="packages"><h2>CHOOSE YOUR ACCESS</h2>
+<p class="sub">One payment. Lifetime access to the private Telegram group for your selected package. No recurring subscription.</p>
 <div class="cards">
-<article class="card">
-<div class="num">01 &nbsp; / &nbsp; THE VAULT</div>
-<div class="art"><div class="vault"><div class="handle"></div></div></div>
-<div>
-<h3>The Vault</h3>
-<p class="desc">A locked vault. An unexpected reveal. Something strange, absurd or unforgettable.</p>
-<div class="price">€2.00</div>
-<button class="btn" onclick="startCheckout('vault')">OPEN THE VAULT</button>
-</div>
-</article>
-
-<article class="card">
-<div class="num">02 &nbsp; / &nbsp; THE THREE DOORS</div>
-<div class="art"><div class="doors"><div class="door"></div><div class="door"></div><div class="door"></div></div></div>
-<div>
-<h3>The Three Doors</h3>
-<p class="desc">Three mysterious doors. Make your choice and discover the reveal behind it.</p>
-<div class="price">€3.00</div>
-<button class="btn" onclick="startCheckout('doors')">CHOOSE A DOOR</button>
-</div>
-</article>
-
-<article class="card">
-<div class="num">03 &nbsp; / &nbsp; THE RED BUTTON</div>
-<div class="art"><div class="redbase"></div></div>
-<div>
-<h3>The Red Button</h3>
-<p class="desc">One decision. One unexpected message. A little moment that might stay with you.</p>
-<div class="price">€5.00</div>
-<button class="btn" onclick="startCheckout('red')">PRESS THE BUTTON</button>
-</div>
-</article>
-</div>
-
-<p class="disclosure">This is a paid digital entertainment experience. Reveals are curated for entertainment purposes only. No cash prizes, physical goods, predictions or guaranteed personal outcomes are offered. One-time purchases only. No subscription.</p>
+<article class="card"><div class="plan">01 / STARTER ACCESS</div><h3>PRO</h3><div class="price">€29</div><div class="once">ONE-TIME PAYMENT · LIFETIME ACCESS</div>
+<p class="desc">A focused daily selection for members who want a clear, structured start.</p>
+<ul><li>3 daily predictions with odds 3.00–5.00</li><li>1 daily prediction with odds 7.00–8.00</li><li class="group">Private PRO Telegram group</li><li>Daily selections and result updates</li><li>Wins and losses tracked transparently</li><li>Lifetime access — no subscription</li></ul>
+<button class="buy" onclick="startCheckout('pro',this)">GET PRO ACCESS</button></article>
+<article class="card"><div class="plan">02 / ADVANCED ACCESS</div><h3>PREMIUM</h3><div class="price">€49</div><div class="once">ONE-TIME PAYMENT · LIFETIME ACCESS</div>
+<p class="desc">More daily selections and a dedicated group for a deeper sports-prediction experience.</p>
+<ul><li>3 daily predictions with odds 4.00–6.00</li><li>1 daily prediction with odds 8.00–9.00</li><li class="group">Private PREMIUM Telegram group</li><li>Daily selections and result updates</li><li>Wins and losses tracked transparently</li><li>Lifetime access — no subscription</li></ul>
+<button class="buy" onclick="startCheckout('premium',this)">GET PREMIUM ACCESS</button></article>
+<article class="card vip"><div class="badge">ELITE ACCESS</div><div class="plan">03 / FULL ACCESS</div><h3>VIP</h3><div class="price">€69</div><div class="once">ONE-TIME PAYMENT · LIFETIME ACCESS</div>
+<p class="desc">The most complete package, with a broader daily selection and its own private community.</p>
+<ul><li>3 daily predictions with odds 4.00–6.00</li><li>2 daily predictions with odds 8.00–9.00</li><li>1 daily prediction with odds 10.00+ or correct score</li><li class="group">Private VIP Telegram group</li><li>Daily selections and result updates</li><li>Wins and losses tracked transparently</li><li>Lifetime access — no subscription</li></ul>
+<button class="buy" onclick="startCheckout('vip',this)">GET VIP ACCESS</button></article>
+</div><div class="status" id="checkoutStatus" role="status"></div>
+<p class="note">Odds are target ranges for selections, not guaranteed outcomes. The number of selections may vary when there are no suitable matches on a given day.</p>
+</section>
+<section class="section" id="results"><h2>RESULTS. NOT JUST CLAIMS.</h2><p class="sub">We believe performance should be visible, including losing selections. Results should be recorded in full rather than showing only winning screenshots.</p>
+<div class="grid3"><div class="tile"><b>WINS + LOSSES</b><span>Results should be recorded, not selectively displayed.</span></div><div class="tile"><b>DAILY UPDATES</b><span>Selections and outcomes are shared with members.</span></div><div class="tile"><b>NO FAKE RECORDS</b><span>Performance percentages will only be published when supported by a verifiable history.</span></div></div></section>
+<section class="section" id="how"><h2>HOW IT WORKS</h2><p class="sub">A simple purchase and access process.</p>
+<div class="steps"><div class="step"><b>STEP 01</b><h3>Choose a package</h3><p>Select PRO, PREMIUM or VIP according to the daily selections and private group you want.</p></div><div class="step"><b>STEP 02</b><h3>Complete payment</h3><p>Pay once through secure checkout. There is no recurring subscription.</p></div><div class="step"><b>STEP 03</b><h3>Join your Telegram group</h3><p>After payment confirmation, access instructions and the relevant private group invitation are sent to your email.</p></div></div>
+</section>
+<section class="section"><p class="disclaimer"><strong>Important:</strong> ODDS ELITE provides sports predictions for informational and entertainment purposes only. We are not a bookmaker and do not accept bets or betting deposits. Sports betting involves risk and you can lose money. No prediction, result, income or profit is guaranteed. Follow the laws in your country and participate only if you meet the legal age requirement. Bet responsibly.</p></section>
 </main>
-
-<footer>
-OPEN THE UNEXPECTED © 2026<br>
-A MOMENT OUTSIDE THE ORDINARY
-</footer>
-
-<div class="experience-modal" id="experienceModal">
-  <div class="modal-content" id="modalContent">
-    <div class="modal-kicker">OPEN THE UNEXPECTED</div>
-    <h2 id="modalTitle">Your reveal</h2>
-    <p id="modalText">A moment outside the ordinary.</p>
-    <div class="reveal-message" id="revealMessage"></div>
-    <div id="doorOptions" class="door-options"></div>
-    <button class="modal-close" onclick="closeExperience()">CLOSE</button>
-  </div>
-</div>
-  
+<footer>ODDS ELITE © 2026 · SPORTS PREDICTIONS<br><a href="terms.html">TERMS</a><a href="privacy.html">PRIVACY</a><a href="refund.html">REFUNDS</a><a href="contact.html">CONTACT</a></footer>
 <script>
-const modal = document.getElementById("experienceModal");
-const content = document.getElementById("modalContent");
-const title = document.getElementById("modalTitle");
-const description = document.getElementById("modalText");
-const message = document.getElementById("revealMessage");
-const doors = document.getElementById("doorOptions");
-  
-const revealLibrary = {
-  vault: [
-    "A duck somewhere is having a better day than you.",
-    "You have unlocked absolutely nothing useful. Congratulations.",
-    "Your coffee believes in you.",
-    "A pigeon has probably made a better financial decision today.",
-    "Plot twist: the mystery was inside the box all along.",
-    "You are now 0.001% more mysterious.",
-    "Somewhere, a cat is silently judging your decisions.",
-    "Your future self recommends a snack.",
-    "The secret ingredient was confidence.",
-    "You have discovered the art of doing absolutely nothing.",
-    "A tiny victory deserves a tiny celebration.",
-    "This vault contains premium nonsense.",
-    "You are officially too curious for your own good.",
-    "A mysterious potato approves of you.",
-    "Your luck is currently buffering.",
-    "The universe misplaced your instruction manual.",
-    "You have unlocked a very exclusive imaginary trophy.",
-    "A penguin somewhere would probably be your friend.",
-    "This message has no practical value. Enjoy.",
-    "You just made a random moment less ordinary.",
-    "The secret password was probably banana.",
-    "You have discovered absolutely classified silliness.",
-    "Your imagination deserves a raise.",
-    "A small mystery has entered your day.",
-    "Somebody somewhere is looking for this exact message.",
-    "The vault keeper says hello.",
-    "Your curiosity has excellent taste.",
-    "A random thought just became important.",
-    "This is your official permission to laugh.",
-    "The treasure was the ridiculous journey.",
-    "You have unlocked a certified odd moment.",
-    "A tiny invisible orchestra is applauding.",
-    "Your day has gained one strange detail.",
-    "The vault is empty, but your imagination isn't.",
-    "A mysterious sandwich awaits in another universe.",
-    "You are now the owner of one imaginary secret.",
-    "This discovery is wonderfully unnecessary.",
-    "A small surprise has successfully found you.",
-    "Your curiosity just won today's lottery of randomness.",
-    "The secret file says: keep being curious.",
-    "Somewhere a goldfish remembers you.",
-    "You have unlocked a very rare moment of nonsense.",
-    "A mystery has been solved. Nobody knows which one.",
-    "Your invisible assistant says well done.",
-    "The vault contains one extra reason to smile.",
-    "You found the secret nobody was looking for.",
-    "A strange little victory is still a victory.",
-    "Your imagination just opened another door.",
-    "The unexpected has officially happened.",
-    "End of file. Beginning of a good day."
-  ],
-
-  doors: [
-    "A new chapter can begin with one simple hello.",
-    "The answer may be hiding in a question you avoid.",
-    "Not every closed door is a lost opportunity.",
-    "A forgotten idea may deserve another chance.",
-    "The quiet path can lead somewhere extraordinary.",
-    "Something changes when you finally choose.",
-    "A small beginning can become a remarkable story.",
-    "The next step does not need to be perfect.",
-    "A mystery is sometimes better left open.",
-    "Your perspective can change the entire room.",
-    "There is more than one way forward.",
-    "The door you fear may teach you the most.",
-    "A coincidence can become a meaningful memory.",
-    "The unknown is not always your enemy.",
-    "A different question may reveal a different answer.",
-    "Some journeys begin before you feel ready.",
-    "The smallest key can open a large door.",
-    "You do not need to know the whole map.",
-    "An unexpected turn can become your favorite story.",
-    "Every choice creates a different possibility.",
-    "The silence behind this door has a story.",
-    "Sometimes the clue is what you overlooked.",
-    "A new perspective is its own kind of discovery.",
-    "The future is not a room with one entrance.",
-    "A little courage can change the atmosphere.",
-    "The best discoveries rarely announce themselves.",
-    "You can begin again without starting from zero.",
-    "A hidden possibility deserves your attention.",
-    "Not all answers arrive in words.",
-    "The next page is still unwritten.",
-    "A familiar place can hold a new mystery.",
-    "You are allowed to change direction.",
-    "A question can be more valuable than an answer.",
-    "The unexpected often begins with a choice.",
-    "Some doors open only after you stop rushing.",
-    "A new idea may be closer than you think.",
-    "The unknown gives imagination room to work.",
-    "One decision can create a different afternoon.",
-    "There is beauty in not knowing everything.",
-    "A closed chapter makes space for another.",
-    "Look again. The details may have changed.",
-    "Your next discovery may be ordinary at first.",
-    "A little wonder can make a long day lighter.",
-    "The path forward is yours to create.",
-    "Sometimes choosing is the real adventure.",
-    "A different door, a different perspective.",
-    "You have reached the end of one mystery.",
-    "The story continues beyond this screen.",
-    "Every ending leaves room for possibility.",
-    "You chose. Now make the next moment count."
-  ],
-
-  red: [
-    "Stop waiting for the perfect moment. Make this one count.",
-    "You are allowed to start again.",
-    "Small moves. Big changes. Start today.",
-    "You have come further than you think.",
-    "Your next chapter deserves your courage.",
-    "Progress is still progress, even when it is quiet.",
-    "One honest step is better than endless planning.",
-    "You do not have to be fearless to begin.",
-    "Give yourself credit for making it this far.",
-    "Your story is still being written.",
-    "A difficult day does not define your life.",
-    "Start where you are. Use what you have.",
-    "You are more than one mistake.",
-    "Keep the promise you made to yourself.",
-    "The next step is often smaller than you imagine.",
-    "You deserve the patience you give to others.",
-    "Let today be a beginning, not a verdict.",
-    "You can move forward at your own pace.",
-    "Courage can look like trying one more time.",
-    "Your effort matters, even when nobody sees it.",
-    "Do not confuse a slow season with a failed life.",
-    "Make room for something better.",
-    "You are allowed to outgrow old versions of yourself.",
-    "One good choice can change the tone of a day.",
-    "You do not need permission to improve your life.",
-    "Keep going. Your effort is not invisible.",
-    "The smallest step still changes your position.",
-    "Be proud of the battles you face quietly.",
-    "Your future is built from ordinary decisions.",
-    "Rest if you need to. Do not give up on yourself.",
-    "A fresh start can happen on an ordinary day.",
-    "You are capable of more than this moment suggests.",
-    "Choose progress over perfection.",
-    "There is strength in asking for help.",
-    "Let your actions speak louder than your doubts.",
-    "You can be both a work in progress and worthy.",
-    "Do not let yesterday make every decision today.",
-    "Your next opportunity may begin with preparation.",
-    "Be patient with the person you are becoming.",
-    "You are not behind in your own story.",
-    "A little discipline can create a lot of freedom.",
-    "Keep your standards high and your self-talk kind.",
-    "You can change direction without calling it failure.",
-    "Make one decision today that your future self will thank you for.",
-    "Your resilience deserves recognition.",
-    "You do not need to solve everything today.",
-    "The next chapter starts with the next choice.",
-    "Believe in the value of your own effort.",
-    "There is still room for a beautiful surprise.",
-    "Take a breath. Then take the next step."
-  ]
-};
-
-function pickUniqueReveal(type) {
-  const key = "otu_used_" + type;
-  let used = JSON.parse(localStorage.getItem(key) || "[]");
-  const library = revealLibrary[type];
-  if (used.length >= library.length) {
-    used = [];
-  }
-  const available = library
-    .map((message, index) => ({message, index}))
-    .filter(item => !used.includes(item.index));
-  const chosen = available[Math.floor(Math.random() * available.length)];
-  used.push(chosen.index);
-  localStorage.setItem(key, JSON.stringify(used));
-  return chosen.message;
+const WORKER_URL="https://otu-payment-backend.valac2210daniel.workers.dev";
+async function startCheckout(product,button){
+ const status=document.getElementById("checkoutStatus"),original=button.textContent;
+ button.disabled=true;button.textContent="CONNECTING...";status.style.display="block";status.textContent="Preparing your secure checkout. Please wait.";
+ try{
+  const response=await fetch(WORKER_URL+"/create-checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({product:product})});
+  const data=await response.json();
+  if(!response.ok||!data.checkout_url)throw new Error(data.error||"Checkout is not available right now.");
+  window.location.href=data.checkout_url;
+ }catch(error){status.textContent=error.message||"Something went wrong. Please try again.";button.disabled=false;button.textContent=original;}
 }
-
-
-function showReveal(name, text, reveal) {
-  title.textContent = name;
-  description.textContent = text;
-  message.textContent = reveal;
-  doors.innerHTML = "";
-  content.classList.remove("animate");
-  modal.classList.add("active");
-  void content.offsetWidth;
-  content.classList.add("animate");
-}
-
-
-function openVault() {
-  showReveal(
-    "THE VAULT IS OPEN",
-    "You unlocked a unique entertainment reveal.",
-    pickUniqueReveal("vault")
-  );
-}
-
-
-
-function openDoors() {
-  title.textContent = "CHOOSE YOUR DOOR";
-  description.textContent = "Each door hides a different surprise. Pick one.";
-  message.textContent = "";
-  doors.innerHTML = "";
-
-  ["DOOR I", "DOOR II", "DOOR III"].forEach((door, index) => {
-    const button = document.createElement("button");
-    button.textContent = door;
-
-    button.onclick = () => {
-      showReveal(
-        "DOOR " + (index + 1) + " OPENED",
-        "Your selected door reveals:",
-        pickUniqueReveal("doors")
-      );
-    };
-
-    doors.appendChild(button);
-  });
-
-  content.classList.remove("animate");
-  modal.classList.add("active");
-  void content.offsetWidth;
-  content.classList.add("animate");
-}
-
-
-function openRedButton() {
-  showReveal(
-    "YOU PRESSED THE BUTTON",
-    "Here is your unexpected message:",
-    pickUniqueReveal("red")
-  );
-}
-
-
-function closeExperience() {
-  modal.classList.remove("active");
-}
-
-async function startCheckout(product) {
-  try {
-    const response = await fetch(
-      "https://otu-payment-backend.valac2210daniel.workers.dev/create-checkout",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ product: product })
-      }
-    );
-
-    const result = await response.json();
-
-    if (!response.ok || !result.checkout_url) {
-      throw new Error(result.error || "Checkout could not be created");
-    }
-
-    window.location.href = result.checkout_url;
-
-  } catch (error) {
-    console.error("Checkout error:", error);
-    alert("Payment error: " + error.message);
-  }
-}
-  
-async function checkPaymentReturn() {
-  const params = new URLSearchParams(window.location.search);
-
-  if (params.get("payment") !== "success") return;
-
-  const id = params.get("id");
-  if (!id) {
-    alert("Missing order ID.");
-    return;
-  }
-
-  const api = "https://otu-payment-backend.valac2210daniel.workers.dev";
-
-  try {
-    for (let attempt = 0; attempt < 10; attempt++) {
-      const response = await fetch(
-        api + "/order-status?id=" + encodeURIComponent(id)
-      );
-
-      if (!response.ok) throw new Error("Order verification failed");
-
-      const order = await response.json();
-
-      if (order.status === "paid") {
-        window.history.replaceState({}, "", window.location.pathname);
-
-        if (order.product === "vault") openVault();
-        else if (order.product === "doors") openDoors();
-        else if (order.product === "red") openRedButton();
-        else alert("Unknown purchased product.");
-
-        return;
-      }
-
-      await new Promise(resolve => setTimeout(resolve, 2000));
-    }
-
-    alert("Payment confirmation is still pending. Please contact support with your order ID.");
-  } catch (error) {
-    console.error("Payment verification:", error);
-    alert("Unable to verify payment right now. Please try again later.");
-  }
-}
-
-checkPaymentReturn();
-
 </script>
-
-  <footer style="text-align:center;padding:35px 15px;color:#aaa;font-size:13px;">
-  <a href="terms.html" style="color:#d6b36a;margin:0 10px;">Terms & Conditions</a>
-  <a href="privacy.html" style="color:#d6b36a;margin:0 10px;">Privacy Policy</a>
-  <a href="refund.html" style="color:#d6b36a;margin:0 10px;">Refund Policy</a>
-  <a href="contact.html" style="color:#d6b36a;margin:0 10px;">Contact</a>
-</footer>
-
-</body>
-</html>
+</body></html>
