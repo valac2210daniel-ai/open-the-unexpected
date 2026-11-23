@@ -20,7 +20,7 @@ h1{font-size:clamp(43px,8vw,82px);line-height:1;letter-spacing:-3px;margin:25px 
 .trust{margin-top:38px;color:#c0cbc3;font-size:10px;letter-spacing:1.3px}.trust span{margin:0 10px}
 .section{max-width:1180px;margin:auto;padding:78px 6%}.section h2{text-align:center;font-size:clamp(30px,5vw,44px);margin:0}
 .sub{text-align:center;color:var(--muted);font-size:14px;line-height:1.7;margin:15px auto 45px;max-width:700px}
-.cards grid-template-columns:repeat(2,1fr);.card{padding:28px 24px;background:linear-gradient(145deg,#17221a,#101612);border:1px solid var(--line);display:flex;flex-direction:column;position:relative}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:100%;margin:35px auto}.card{padding:28px 24px;background:linear-gradient(145deg,#17221a,#101612);border:1px solid var(--line);display:flex;flex-direction:column;position:relative}
 .card.vip{border-color:var(--green);box-shadow:0 0 30px #b6ff4510}.badge{position:absolute;right:15px;top:0;background:var(--green);color:#071007;padding:7px 11px;font-size:9px;font-weight:bold}
 .plan{color:var(--green);font-size:10px;letter-spacing:3px;font-weight:bold}.card h3{font-size:31px;margin:12px 0}
 .price{font-size:42px;font-weight:900}.once{font-size:10px;color:var(--muted)}.desc{color:var(--muted);font-size:13px;line-height:1.7;min-height:45px;margin:18px 0}
@@ -32,7 +32,7 @@ ul{list-style:none;padding:0;margin:0 0 25px;flex:1}li{font-size:13px;line-heigh
 .status{display:none;text-align:center;margin:18px auto;padding:14px;border:1px solid var(--line);max-width:600px;color:white}
 footer{text-align:center;border-top:1px solid var(--line);padding:30px 10px;color:#89958d;font-size:10px;line-height:2.5}footer a{color:#c4d0c7;margin:0 8px;text-decoration:none}
 @media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)};.grid3,.steps{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}.trust span{display:inline-block;margin:7px}.section{padding:60px 6%}}
-@media(max-width:520px){header{padding:0 5%}.logo{font-size:16px}nav{gap:10px;font-size:9px}nav a:nth-child(2){display:none}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}header{padding:0 5%}.logo{font-size:16px}nav{gap:10px;font-size:9px}nav a:nth-child(2){display:none}}
 </style>
 </head>
 <body>
@@ -62,6 +62,7 @@ footer{text-align:center;border-top:1px solid var(--line);padding:30px 10px;colo
 <li>Private access to the daily ticket</li>
 </ul>
 <button class="buy" onclick="startCheckout('daily',this)">GET DAILY TICKET</button>
+</article>
 <article class="card"><div class="plan">01 / STARTER ACCESS</div><h3>PRO</h3><div class="price">€19.99</div><div class="once">ONE-TIME PAYMENT · LIFETIME ACCESS</div>
 <p class="desc">A focused daily selection for members who want a clear, structured start.</p>
 <ul><li>3 daily predictions with odds 3.00–5.00</li><li>1 daily prediction with odds 7.00–8.00</li><li class="group">Private PRO Telegram group</li><li>Daily selections and result updates</li><li>Wins and losses tracked transparently</li><li>Lifetime access — no subscription</li></ul>
@@ -74,7 +75,6 @@ footer{text-align:center;border-top:1px solid var(--line);padding:30px 10px;colo
 <p class="desc">The most complete package, with a broader daily selection and its own private community.</p>
 <ul><li>3 daily predictions with odds 4.00–6.00</li><li>2 daily predictions with odds 8.00–9.00</li><li>1 daily prediction with odds 10.00+ or correct score</li><li class="group">Private VIP Telegram group</li><li>Daily selections and result updates</li><li>Wins and losses tracked transparently</li><li>Lifetime access — no subscription</li></ul>
 <button class="buy" onclick="startCheckout('vip',this)">GET VIP ACCESS</button></article>
-</article>
 </div><div class="status" id="checkoutStatus" role="status"></div>
 <p class="note">Odds are target ranges for selections, not guaranteed outcomes. The number of selections may vary when there are no suitable matches on a given day.</p>
 </section>
